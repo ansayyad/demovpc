@@ -1,9 +1,8 @@
-module "vpc" {
-  vpc_cidr = "10.0.0.1/20"
+resource "aws_vpc" "main" {
+  cidr_block       = "10.0.0.0/16"
+  instance_tenancy = "default"
 
-  route_out = true
-
-  #Tags of VPC
-  vpc_name = "Demo"
-  
+  tags = {
+    Name = "main"
+  }
 }
